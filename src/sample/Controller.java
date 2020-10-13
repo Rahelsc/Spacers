@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -28,8 +29,11 @@ public class Controller {
 
     boolean fired = false;
 
-    @FXML
-    ImageView SpaceShip;
+//    @FXML
+//    ImageView SpaceShip;
+
+    Sprite hero = new BraveDefender("@./sample/Images/SpaceShip.png");
+
     double imgX,imgY = 0;
 
     public void Fire(){
@@ -37,7 +41,6 @@ public class Controller {
         Timeline tm = new Timeline(new KeyFrame(Duration.millis(30),this::shotStep));
         tm.setCycleCount(Timeline.INDEFINITE);
         tm.play();
-
     }
 
     public void shotStep(ActionEvent e){
@@ -65,34 +68,35 @@ public class Controller {
         Timeline act = new Timeline(new KeyFrame(Duration.millis(10),(somth)->{
               if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.UP)) {
                 imgX-=1;imgY-=1;
-                SpaceShip.setTranslateY(imgY);
-                SpaceShip.setTranslateX(imgX);
+//                SpaceShip.setTranslateY(imgY);
+//                SpaceShip.setTranslateX(imgX);
             } else if (keys.contains(KeyCode.RIGHT)&&keys.contains(KeyCode.UP)) {
                 imgY-=1;imgX+=1;
-                SpaceShip.setTranslateX(imgX);
-                SpaceShip.setTranslateY(imgY);
+//                SpaceShip.setTranslateX(imgX);
+//                SpaceShip.setTranslateY(imgY);
             } else if (keys.contains(KeyCode.RIGHT)&&keys.contains(KeyCode.DOWN)) {
                 imgY+=1;imgX+=1;
-                SpaceShip.setTranslateX(imgX);
-                SpaceShip.setTranslateY(imgY);
+//                SpaceShip.setTranslateX(imgX);
+//                SpaceShip.setTranslateY(imgY);
             } else if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.DOWN)) {
                 imgY+=1;imgX-=1;
-                SpaceShip.setTranslateX(imgX);
-                SpaceShip.setTranslateY(imgY);
+//                SpaceShip.setTranslateX(imgX);
+//                SpaceShip.setTranslateY(imgY);
             }
               else if (keys.contains(KeyCode.RIGHT)) {
                 imgX+=1;
-                SpaceShip.setTranslateX(imgX);
+//                SpaceShip.setTranslateX(imgX);
             } else if (keys.contains(KeyCode.LEFT)) {
                 imgX-=1;
-                SpaceShip.setTranslateX(imgX);
+//                SpaceShip.setTranslateX(imgX);
             } else if (keys.contains(KeyCode.UP)) {
                 imgY-=1;
-                SpaceShip.setTranslateY(imgY);
+//                SpaceShip.setTranslateY(imgY);
             } else if (keys.contains(KeyCode.DOWN)) {
                 imgY+=1;
-                SpaceShip.setTranslateY(imgY);
+//                SpaceShip.setTranslateY(imgY);
             }
+            hero.setPosition(imgX, imgY);
 
 
         }));
@@ -100,14 +104,11 @@ public class Controller {
         act.play();
 
         if (e.getCode() == KeyCode.SPACE) {
-            Circle shot = new Circle(3, Color.YELLOW);
+            Shot shot = new Shot();
             if (!fired)
                 Fire();
-            shot.setStroke(Color.RED);
-            shot.setStrokeWidth(2.0);
-            Border.getChildren().add(shot);
-            shot.setTranslateX(imgX + 47);
-            shot.setTranslateY(imgY - 50);
+            Border.getChildren().add(shot.getCircle());
+            shot.setPosition(imgX + 47, imgY - 50);
         }
     }
 
