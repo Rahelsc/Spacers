@@ -13,6 +13,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Spacers");
         primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.getScene().getRoot().requestFocus();
         primaryStage.show();
     }
 
