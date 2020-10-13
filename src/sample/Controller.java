@@ -32,9 +32,6 @@ public class Controller {
     ImageView SpaceShip;
     double imgX,imgY = 0;
 
-    KeyEvent prevAction;
-
-
     public void Fire(){
         fired=true;
         Timeline tm = new Timeline(new KeyFrame(Duration.millis(30),this::shotStep));
