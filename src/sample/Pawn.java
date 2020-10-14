@@ -1,6 +1,8 @@
 package sample;
 
-public class Pawn {
+import javafx.scene.Node;
+
+public class Pawn extends Node {
     private int posX;
     private int posY;
     private String imgURL;
