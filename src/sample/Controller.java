@@ -38,11 +38,13 @@ public class Controller {
         Timeline tm = new Timeline(new KeyFrame(Duration.millis(30),this::shotStep));
         tm.setCycleCount(Timeline.INDEFINITE);
         tm.play();
-
+        if(Border.getChildren().size()<2){
+            tm.stop();
+            fired=false;
+        }
     }
 
     public void shotStep(ActionEvent e){
-        System.out.println(keys);
         for (int i =1 ; i<Border.getChildren().size();i++) {
             Border.getChildren().get(i).setTranslateY(Border.getChildren().get(i).getTranslateY() - 5);
             if(Border.getChildren().get(i).getTranslateY()<=-300){
@@ -65,7 +67,7 @@ public class Controller {
         System.out.println(keys);
         //moving smoothie with timeline (20 per 150 milis)
         //nasty conditions for set borders of the screen
-        Timeline act = new Timeline(new KeyFrame(Duration.millis(150),(somth)->{
+        Timeline act = new Timeline(new KeyFrame(Duration.millis(50),(somth)->{
               if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.UP)) {
                   if(imgX<=-450)
                       imgX=imgX;
@@ -129,7 +131,7 @@ public class Controller {
             SpaceShip.setTranslateY(imgY);
 
         }));
-        act.setCycleCount(20);
+        act.setCycleCount(25);
         act.play();
 
         //shoot
