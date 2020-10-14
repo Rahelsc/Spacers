@@ -66,13 +66,8 @@ public class Controller {
         System.out.println(keys);
         //moving smoothie with timeline (20 per 150 milis)
         //nasty conditions for set borders of the screen
-<<<<<<< HEAD
-        Timeline act = new Timeline(new KeyFrame(Duration.millis(150),(somth)->{
-            if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.UP)) {
-=======
         Timeline act = new Timeline(new KeyFrame(Duration.millis(50),(somth)->{
               if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.UP)) {
->>>>>>> 1b1167ea57e2475f34d3421196e1f1222e7b3824
                   if(imgX>-450)
                       imgX-=1;
                   if(imgY>-250)
