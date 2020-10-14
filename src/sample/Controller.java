@@ -69,64 +69,35 @@ public class Controller {
         //nasty conditions for set borders of the screen
         Timeline act = new Timeline(new KeyFrame(Duration.millis(50),(somth)->{
               if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.UP)) {
-                  if(imgX<=-450)
-                      imgX=imgX;
-                  else
+                  if(imgX>-450)
                       imgX-=1;
-                  if(imgY<=-250)
-                      imgY=imgY;
-                  else
+                  if(imgY>-250)
                       imgY-=1;
             }
             else if (keys.contains(KeyCode.RIGHT)&&keys.contains(KeyCode.UP)) {
-                  if(imgX>=450)
-                      imgX=imgX;
-                  else
+                  if(imgX<450)
                       imgX+=1;
-                  if(imgY<=-250)
-                      imgY=imgY;
-                  else
+                  if(imgY>-250)
                       imgY-=1;
             } else if (keys.contains(KeyCode.RIGHT)&&keys.contains(KeyCode.DOWN)) {
-                  if(imgY>=250)
-                      imgY=imgY;
-                  else
+                  if(imgY<250)
                       imgY+=1;
-                  if(imgX>=450)
-                      imgX=imgX;
-                  else
+                  if(imgX<450)
                       imgX+=1;
             } else if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.DOWN)) {
-                  if(imgY>=250)
-                      imgY=imgY;
-                  else
+                  if(imgY<250)
                       imgY+=1;
-                  if(imgX<=-450)
-                      imgX=imgX;
-                  else
+                  if(imgX>-450)
                       imgX-=1;
             }
-              else if (keys.contains(KeyCode.RIGHT)) {
-                  if(imgX>=450)
-                      imgX=imgX;
-                  else
-                imgX+=1;
-            } else if (keys.contains(KeyCode.LEFT)) {
-                  if(imgX<=-450)
-                      imgX=imgX;
-                  else
-                imgX-=1;
-            } else if (keys.contains(KeyCode.UP)) {
-                  if(imgY<=-250)
-                      imgY=imgY;
-                  else
-                imgY-=1;
-            } else if (keys.contains(KeyCode.DOWN)) {
-                  if(imgY>=250)
-                      imgY=imgY;
-                  else
-                imgY+=1;
-            }
+            else if (keys.contains(KeyCode.RIGHT) && imgX<450)
+                      imgX+=1;
+            else if (keys.contains(KeyCode.LEFT) && imgX>-450)
+                      imgX-=1;
+            else if (keys.contains(KeyCode.UP) && imgY>-250)
+                      imgY-=1;
+            else if (keys.contains(KeyCode.DOWN) && imgY<250)
+                      imgY+=1;
             SpaceShip.setTranslateX(imgX);
             SpaceShip.setTranslateY(imgY);
 
