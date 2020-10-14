@@ -76,39 +76,41 @@ public class Controller {
         //moving smoothie with timeline (20 per 150 milis)
         //nasty conditions for set borders of the screen
         act = new Timeline(new KeyFrame(Duration.millis(50), (somth) -> {
+            double width = (Border.getWidth()-100)/2;
+            double height = (Border.getHeight()-100)/2;
             if (keys.contains(KeyCode.LEFT) && keys.contains(KeyCode.UP)) {
-                if (imgX > -450)
+                if (imgX>width * -1)
                     imgX -= 1;
-                if (imgY > -250)
+                if (imgY > height * -1)
                     imgY -= 1;
             } else if (keys.contains(KeyCode.RIGHT) && keys.contains(KeyCode.UP)) {
-                if (imgX < 450)
+                if (imgX < width)
                     imgX += 1;
-                if (imgY > -250)
+                if (imgY > height * -1)
                     imgY -= 1;
             } else if (keys.contains(KeyCode.RIGHT) && keys.contains(KeyCode.DOWN)) {
-                if (imgY < 250)
+                if (imgY < height)
                     imgY += 1;
-                if (imgX < 450)
+                if (imgX < width)
                     imgX += 1;
             } else if (keys.contains(KeyCode.LEFT) && keys.contains(KeyCode.DOWN)) {
-                if (imgY < 250)
+                if (imgY < height)
                     imgY += 1;
-                if (imgX > -450)
+                if (imgX>width * -1)
                     imgX -= 1;
-            } else if (keys.contains(KeyCode.RIGHT) && imgX < 450)
+            } else if (keys.contains(KeyCode.RIGHT) && imgX < width)
                 imgX += 1;
-            else if (keys.contains(KeyCode.LEFT) && imgX > -450)
+            else if (keys.contains(KeyCode.LEFT) && imgX>width * -1)
                 imgX -= 1;
-            else if (keys.contains(KeyCode.UP) && imgY > -250)
+            else if (keys.contains(KeyCode.UP) && imgY > height * -1)
                 imgY -= 1;
-            else if (keys.contains(KeyCode.DOWN) && imgY < 250)
+            else if (keys.contains(KeyCode.DOWN) && imgY < height)
                 imgY += 1;
             SpaceShip.setTranslateX(imgX);
             SpaceShip.setTranslateY(imgY);
             act.playFromStart();
         }));
-        act.setCycleCount(25);
+        act.setCycleCount(100);
         act.play();
 
         //shoot
