@@ -75,8 +75,6 @@ public class Controller {
                       imgY=imgY;
                   else
                       imgY-=1;
-                SpaceShip.setTranslateY(imgY);
-                SpaceShip.setTranslateX(imgX);
             }
             else if (keys.contains(KeyCode.RIGHT)&&keys.contains(KeyCode.UP)) {
                   if(imgX>=450)
@@ -87,8 +85,6 @@ public class Controller {
                       imgY=imgY;
                   else
                       imgY-=1;
-                SpaceShip.setTranslateX(imgX);
-                SpaceShip.setTranslateY(imgY);
             } else if (keys.contains(KeyCode.RIGHT)&&keys.contains(KeyCode.DOWN)) {
                   if(imgY>=250)
                       imgY=imgY;
@@ -98,8 +94,6 @@ public class Controller {
                       imgX=imgX;
                   else
                       imgX+=1;
-                SpaceShip.setTranslateX(imgX);
-                SpaceShip.setTranslateY(imgY);
             } else if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.DOWN)) {
                   if(imgY>=250)
                       imgY=imgY;
@@ -109,35 +103,30 @@ public class Controller {
                       imgX=imgX;
                   else
                       imgX-=1;
-                SpaceShip.setTranslateX(imgX);
-                SpaceShip.setTranslateY(imgY);
             }
               else if (keys.contains(KeyCode.RIGHT)) {
                   if(imgX>=450)
                       imgX=imgX;
                   else
                 imgX+=1;
-                SpaceShip.setTranslateX(imgX);
             } else if (keys.contains(KeyCode.LEFT)) {
                   if(imgX<=-450)
                       imgX=imgX;
                   else
                 imgX-=1;
-                SpaceShip.setTranslateX(imgX);
             } else if (keys.contains(KeyCode.UP)) {
                   if(imgY<=-250)
                       imgY=imgY;
                   else
                 imgY-=1;
-                SpaceShip.setTranslateY(imgY);
             } else if (keys.contains(KeyCode.DOWN)) {
                   if(imgY>=250)
                       imgY=imgY;
                   else
                 imgY+=1;
-                SpaceShip.setTranslateY(imgY);
             }
-
+            SpaceShip.setTranslateX(imgX);
+            SpaceShip.setTranslateY(imgY);
 
         }));
         act.setCycleCount(20);
