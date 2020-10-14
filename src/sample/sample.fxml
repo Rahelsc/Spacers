@@ -1,21 +1,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import sample.BraveDefender?>
-
-
-<GridPane fx:id="Border" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: black"
-          alignment="center" vgap="10" hgap="10" gridLinesVisible="false" onKeyPressed="#ManageMovment"  >
-<!--    <ImageView fx:id="SpaceShip" fitHeight="100" fitWidth="100" >-->
-<!--        <image>-->
-<!--            <Image url="@./Images/SpaceShip.png"/>-->
-<!--        </image>-->
-<!--    </ImageView>-->
-    <BraveDefender fx:factory="instance" fx:id="hero">
-<!--        <ImageView image="file:/images/SpaceShip.png">-->
-
-<!--        </ImageView>-->
-
-    </BraveDefender>
-
+<GridPane fx:id="Border" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml"
+          style="-fx-background-image:url(https://image.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg);
+            -fx-background-repeat:no-repeat;-fx-background-size:cover"
+          alignment="center" vgap="10" hgap="10" gridLinesVisible="false"  onKeyPressed="#ManageMovment"  >
+    <ImageView fx:id="SpaceShip" fitHeight="100" fitWidth="100" >
+        <image>
+            <Image url="@./Images/SpaceShip.png"/>
+        </image>
+    </ImageView>
 </GridPane>
