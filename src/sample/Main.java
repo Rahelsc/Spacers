@@ -31,7 +31,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root, 1000, 600);
         scene.getRoot().requestFocus();
-        primaryStage.setTitle("Ball"); // Set the stage title
+        primaryStage.setTitle("Spacers"); // Set the stage title
         primaryStage.setScene(scene); // Place the scene in the stage
         primaryStage.show();
 
