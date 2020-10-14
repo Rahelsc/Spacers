@@ -1,8 +1,9 @@
 package sample;
 
 import javafx.scene.Node;
+import javafx.scene.canvas.Canvas;
 
-public class Interactive {
+public abstract class Interactive {
     private int posX;
     private int posY;
 

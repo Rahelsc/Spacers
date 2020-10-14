@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -36,6 +38,11 @@ public class Controller {
 
     Timeline act;
 
+//    @FXML
+//    Canvas enemy;
+//
+//    Invader alien = Invader.createInvader();
+
     private ObservableList<KeyCode> keys = FXCollections.observableArrayList();
 
     public void Fire() {
@@ -58,7 +65,6 @@ public class Controller {
         }
     }
 
-    @FXML
     public void removeKey(KeyEvent event) {
         System.out.println("YYYYYYYYY");
         keys.remove(event.getCode());
@@ -66,6 +72,8 @@ public class Controller {
 
     @FXML
     public void ManageMovment(KeyEvent e) throws InterruptedException {
+
+//        enemy.getGraphicsContext2D().drawImage(new Image("file:Images/attacker.jpeg"), 50, 50);
         if (!keys.contains(e.getCode())) {
             keys.add(e.getCode());
         }

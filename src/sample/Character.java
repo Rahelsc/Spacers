@@ -1,6 +1,6 @@
 package sample;
 
-public class Character extends Interactive{
+public abstract class Character extends Interactive{
     private String imgURL;
     private int hitPoints;
 
