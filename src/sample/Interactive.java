@@ -2,22 +2,16 @@ package sample;
 
 import javafx.scene.Node;
 
-public class Pawn extends Node {
+public class Interactive extends Node {
     private int posX;
     private int posY;
     private String imgURL;
-    private int hitPoints;
 
-    public Pawn(int posX, int posY, String imgURL,int hitPoints) {
+    public Interactive(int posX, int posY, String imgURL) {
         this.posX = posX;
         this.posY = posY;
         this.imgURL = imgURL;
-        this.hitPoints = hitPoints;
     }
-
-    public int getHitPoints() { return hitPoints; }
-
-    public void setHitPoints(int hitPoints) { this.hitPoints = hitPoints; }
 
     public int getPosX() {
         return posX;

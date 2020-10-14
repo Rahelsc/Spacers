@@ -1,6 +1,6 @@
 package sample;
 
-public class Hero extends Pawn{
+public class Hero extends Interactive {
 
 
     public Hero(int posX, int posY, String imgURL, int hitPoints) {

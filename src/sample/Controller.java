@@ -55,7 +55,6 @@ public class Controller {
 
     @FXML
     public void ManageMovment(KeyEvent e) throws InterruptedException {
-
         if (!keys.contains(e.getCode())) {
             keys.add(e.getCode());
         }
@@ -66,7 +65,7 @@ public class Controller {
         //moving smoothie with timeline (20 per 150 milis)
         //nasty conditions for set borders of the screen
         Timeline act = new Timeline(new KeyFrame(Duration.millis(150),(somth)->{
-              if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.UP)) {
+            if (keys.contains(KeyCode.LEFT)&&keys.contains(KeyCode.UP)) {
                   if(imgX>-450)
                       imgX-=1;
                   if(imgY>-250)
