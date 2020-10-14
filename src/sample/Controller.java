@@ -43,7 +43,7 @@ public class Controller {
         Timeline tm = new Timeline(new KeyFrame(Duration.millis(30), this::shotStep));
         tm.setCycleCount(Timeline.INDEFINITE);
         tm.play();
-        if (Border.getChildren().size() < 2) {
+        if (Border.getChildren().size() < 1) {
             tm.stop();
             fired = false;
         }
@@ -110,7 +110,7 @@ public class Controller {
             SpaceShip.setTranslateY(imgY);
             act.playFromStart();
         }));
-        act.setCycleCount(100);
+        act.setCycleCount(25);
         act.play();
 
         //shoot
@@ -132,7 +132,7 @@ public class Controller {
                             }
                         });
                     }
-                }, 300);
+                }, 150);
             }
             allowShooting = false;
         }
