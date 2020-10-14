@@ -112,14 +112,11 @@ public class Controller {
                         //nasty anonymous class cause of javaFX issue with Timer
                         Platform.runLater(new Runnable() {
                             public void run() {
-                                Circle shot = new Circle(3, Color.YELLOW);
+                                Shot shot = new Shot(3, Color.YELLOW);
                                 if (!fired)
                                     Fire();
-                                shot.setStroke(Color.RED);
-                                shot.setStrokeWidth(2.0);
-                                Border.getChildren().add(shot);
-                                shot.setTranslateX(imgX + 47);
-                                shot.setTranslateY(imgY - 50);
+                                Border.getChildren().add(shot.getC());
+                                shot.updatePosition(imgX + 47, imgY - 50);
                                 allowShooting=true;
                             }
                         });
