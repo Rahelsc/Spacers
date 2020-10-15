@@ -59,23 +59,27 @@ public class Controller {
     }
 
     @FXML
-    public void removeKey(KeyEvent event) {
+    public void removeKey(KeyEvent e) throws InterruptedException {
         System.out.println("YYYYYYYYY");
-        keys.remove(event.getCode());
+        keys.remove(e.getCode());
+        ManageMovment(e);
+    }
+    @FXML
+    public void addKey(KeyEvent e) throws InterruptedException {
+        if (!keys.contains(e.getCode())) {
+            keys.add(e.getCode());
+
+        }
+        ManageMovment(e);
     }
 
     @FXML
     public void ManageMovment(KeyEvent e) throws InterruptedException {
-        if (!keys.contains(e.getCode())) {
-            keys.add(e.getCode());
-        }
-        Border.setOnKeyReleased((event) -> {
-            removeKey(event);
-        });
+
         System.out.println(keys);
         //moving smoothie with timeline (20 per 150 milis)
         //nasty conditions for set borders of the screen
-        act = new Timeline(new KeyFrame(Duration.millis(50), (somth) -> {
+        act = new Timeline(new KeyFrame(Duration.millis(100), (somth) -> {
             double width = (Border.getWidth()-100)/2;
             double height = (Border.getHeight()-100)/2;
             if (keys.contains(KeyCode.LEFT) && keys.contains(KeyCode.UP)) {
@@ -110,7 +114,7 @@ public class Controller {
             SpaceShip.setTranslateY(imgY);
             act.playFromStart();
         }));
-        act.setCycleCount(25);
+        act.setCycleCount(20);
         act.play();
 
         //shoot
@@ -132,7 +136,7 @@ public class Controller {
                             }
                         });
                     }
-                }, 150);
+                }, 80);
             }
             allowShooting = false;
         }
