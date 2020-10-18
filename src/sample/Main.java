@@ -32,7 +32,6 @@ public class Main extends Application {
         primaryStage.setScene(scene); // Place the scene in the stage
         primaryStage.show();
 
-
     }
 
     public static void main(String[] args) {

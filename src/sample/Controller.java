@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -18,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+import java.security.Key;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,6 +31,8 @@ public class Controller {
     boolean fired = false;
     //delay shooting flag
     boolean allowShooting = true;
+    //moving flag
+    boolean UP,DOWN,LEFT,RIGHT,SPACE = false;
 
     @FXML
     ImageView SpaceShip;
@@ -57,68 +61,92 @@ public class Controller {
             }
         }
     }
-
-    @FXML
-    public void removeKey(KeyEvent e) throws InterruptedException {
-        System.out.println("YYYYYYYYY");
-        keys.remove(e.getCode());
-        ManageMovment(e);
-    }
-    @FXML
-    public void addKey(KeyEvent e) throws InterruptedException {
-        if (!keys.contains(e.getCode())) {
-            keys.add(e.getCode());
-
+    public void turnOn(KeyCode action){
+        switch (action){
+            case LEFT:LEFT=true;
+            break;
+            case RIGHT:RIGHT=true;
+            break;
+            case UP: UP = true;
+            break;
+            case DOWN: DOWN = true;
+            break;
+            case SPACE:SPACE = true;
         }
-        ManageMovment(e);
+    }
+    public void turnOff(KeyCode action){
+        switch (action){
+            case LEFT:LEFT=false;
+                break;
+            case RIGHT:RIGHT=false;
+                break;
+            case UP: UP = false;
+                break;
+            case DOWN: DOWN = false;
+                break;
+            case SPACE:SPACE = false;
+        }
     }
 
     @FXML
-    public void ManageMovment(KeyEvent e) throws InterruptedException {
+    public void removeKey(KeyEvent e) {
+        turnOff(e.getCode());
+        ManageMovment();
 
-        System.out.println(keys);
+    }
+    @FXML
+    public void addKey(KeyEvent e) {
+        turnOn(e.getCode());
+        ManageMovment();
+    }
+
+
+
+    @FXML
+    public void ManageMovment() {
+        System.out.println(LEFT+" "+RIGHT);
         //moving smoothie with timeline (20 per 150 milis)
         //nasty conditions for set borders of the screen
         act = new Timeline(new KeyFrame(Duration.millis(100), (somth) -> {
             double width = (Border.getWidth()-100)/2;
             double height = (Border.getHeight()-100)/2;
-            if (keys.contains(KeyCode.LEFT) && keys.contains(KeyCode.UP)) {
+            if (LEFT && UP) {
                 if (imgX>width * -1)
                     imgX -= 1;
                 if (imgY > height * -1)
                     imgY -= 1;
-            } else if (keys.contains(KeyCode.RIGHT) && keys.contains(KeyCode.UP)) {
+            } else if (RIGHT && UP) {
                 if (imgX < width)
                     imgX += 1;
                 if (imgY > height * -1)
                     imgY -= 1;
-            } else if (keys.contains(KeyCode.RIGHT) && keys.contains(KeyCode.DOWN)) {
+            } else if (RIGHT && DOWN ) {
                 if (imgY < height)
                     imgY += 1;
                 if (imgX < width)
                     imgX += 1;
-            } else if (keys.contains(KeyCode.LEFT) && keys.contains(KeyCode.DOWN)) {
+            } else if (LEFT && DOWN ) {
                 if (imgY < height)
                     imgY += 1;
                 if (imgX>width * -1)
                     imgX -= 1;
-            } else if (keys.contains(KeyCode.RIGHT) && imgX < width)
+            } else if (RIGHT && imgX < width)
                 imgX += 1;
-            else if (keys.contains(KeyCode.LEFT) && imgX>width * -1)
+            else if (LEFT && imgX>width * -1)
                 imgX -= 1;
-            else if (keys.contains(KeyCode.UP) && imgY > height * -1)
+            else if (UP && imgY > height * -1)
                 imgY -= 1;
-            else if (keys.contains(KeyCode.DOWN) && imgY < height)
+            else if (DOWN && imgY < height)
                 imgY += 1;
             SpaceShip.setTranslateX(imgX);
             SpaceShip.setTranslateY(imgY);
-            act.playFromStart();
         }));
-        act.setCycleCount(20);
+        act.setCycleCount(25);
         act.play();
 
+
         //shoot
-        if (keys.contains(KeyCode.SPACE)) {
+        if (SPACE) {
             Timer timer = new java.util.Timer();
             //delay the shooting by 300 milli sec
             if (allowShooting) {
