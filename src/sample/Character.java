@@ -1,8 +1,11 @@
 package sample;
 
+import javafx.scene.image.Image;
+
 public abstract class Character extends Interactive{
     private String imgURL;
     private int hitPoints;
+    private Image img;
 
 
 
@@ -10,6 +13,7 @@ public abstract class Character extends Interactive{
         super(posX, posY);
         this.hitPoints = hitPoints;
         this.imgURL = imgURL;
+        this.img = new Image(this.getImgURL());
     }
 
     public int getHitPoints() { return hitPoints; }
@@ -22,5 +26,9 @@ public abstract class Character extends Interactive{
 
     public void setImgURL(String imgURL) {
         this.imgURL = imgURL;
+    }
+
+    public Image getFullImage(){
+        return img;
     }
 }

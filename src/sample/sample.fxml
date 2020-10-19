@@ -1,21 +1,129 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import sample.Character?>
-<?import sample.Invader?>
-<?import javafx.embed.swing.SwingNode?>
-<?import javafx.scene.canvas.Canvas?>
-<GridPane fx:id="Border" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml"
-          style="-fx-background-image:url(https://image.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg);
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.FlowPane?>
+<BorderPane fx:id="Border" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml"
+            style="-fx-background-image:url(https://image.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg);
             -fx-background-repeat:no-repeat;-fx-background-size:cover"
-          alignment="center" vgap="10" hgap="10" gridLinesVisible="false" onKeyPressed="#ManageMovment">
-    <ImageView fx:id="SpaceShip" fitHeight="100" fitWidth="100">
-        <image>
-            <Image url="@./Images/SpaceShip.png"/>
-        </image>
-    </ImageView>
+            onKeyPressed="#ManageMovment" >
+<!--    <top>-->
 
-<!--    <Canvas fx:id="enemy"></Canvas>-->
+<!--        <GridPane hgap="30" vgap="30">-->
+<!--            <padding>-->
+<!--                <Insets left="6"/>-->
+<!--            </padding>-->
+<!--            <ImageView fx:id="enemy0" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy1" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy2" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy3" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy4" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy5" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy6" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy7" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy8" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy9" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy10" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy11" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy12" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy13" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy14" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy15" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy16" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy17" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy18" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--            <ImageView fx:id="enemy19" fitHeight="70" fitWidth="70">-->
+<!--                <image>-->
+<!--                    <Image url="@./Images/attacker.png"/>-->
+<!--                </image>-->
+<!--            </ImageView>-->
+<!--        </GridPane>-->
 
+<!--    </top>-->
+<!--    <bottom>-->
 
-</GridPane>
+        <ImageView fx:id="SpaceShip" fitHeight="70" fitWidth="70" >
+            <image>
+                <Image url="@./Images/SpaceShip.png"/>
+            </image>
+        </ImageView>
+    </bottom>
+</BorderPane>

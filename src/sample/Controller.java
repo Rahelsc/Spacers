@@ -11,22 +11,23 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class Controller {
     @FXML
-    GridPane Border;
+    BorderPane Border;
     //flag to call Fire() func only once
     boolean fired = false;
     //delay shooting flag
@@ -38,12 +39,18 @@ public class Controller {
 
     Timeline act;
 
-//    @FXML
-//    Canvas enemy;
-//
-//    Invader alien = Invader.createInvader();
+//    Canvas c;
+//    Invader i;
 
     private ObservableList<KeyCode> keys = FXCollections.observableArrayList();
+
+//    public void initialize(){
+//        System.out.println("uuuuu");
+//        c = new Canvas();
+//        i = Invader.createInvader();
+//        c.getGraphicsContext2D().drawImage(i.getFullImage(), i.getPosX(), i.getPosY());
+//        Border.getChildren().add(c);
+//    }
 
     public void Fire() {
         fired = true;
@@ -65,6 +72,7 @@ public class Controller {
         }
     }
 
+    @FXML
     public void removeKey(KeyEvent event) {
         System.out.println("YYYYYYYYY");
         keys.remove(event.getCode());
@@ -73,7 +81,7 @@ public class Controller {
     @FXML
     public void ManageMovment(KeyEvent e) throws InterruptedException {
 
-//        enemy.getGraphicsContext2D().drawImage(new Image("file:Images/attacker.jpeg"), 50, 50);
+
         if (!keys.contains(e.getCode())) {
             keys.add(e.getCode());
         }
@@ -84,10 +92,10 @@ public class Controller {
         //moving smoothie with timeline (20 per 150 milis)
         //nasty conditions for set borders of the screen
         act = new Timeline(new KeyFrame(Duration.millis(50), (somth) -> {
-            double width = (Border.getWidth()-100)/2;
-            double height = (Border.getHeight()-100)/2;
+            double width = (Border.getWidth() - 100) / 2;
+            double height = (Border.getHeight() - 100) / 2;
             if (keys.contains(KeyCode.LEFT) && keys.contains(KeyCode.UP)) {
-                if (imgX>width * -1)
+                if (imgX > width * -1)
                     imgX -= 1;
                 if (imgY > height * -1)
                     imgY -= 1;
@@ -104,11 +112,11 @@ public class Controller {
             } else if (keys.contains(KeyCode.LEFT) && keys.contains(KeyCode.DOWN)) {
                 if (imgY < height)
                     imgY += 1;
-                if (imgX>width * -1)
+                if (imgX > width * -1)
                     imgX -= 1;
             } else if (keys.contains(KeyCode.RIGHT) && imgX < width)
                 imgX += 1;
-            else if (keys.contains(KeyCode.LEFT) && imgX>width * -1)
+            else if (keys.contains(KeyCode.LEFT) && imgX > width * -1)
                 imgX -= 1;
             else if (keys.contains(KeyCode.UP) && imgY > height * -1)
                 imgY -= 1;

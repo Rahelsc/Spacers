@@ -8,6 +8,6 @@ public class Invader extends Character {
     }
 
     public static Invader createInvader(){
-        return new Invader(50, 50, "file:/Images/attacker.jpg", 0);
+        return new Invader(50, 50, "file:/Images/attacker.jpeg", 0);
     }
 }
