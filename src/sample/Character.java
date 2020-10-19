@@ -1,34 +1,40 @@
 package sample;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public abstract class Character extends Interactive{
-    private String imgURL;
     private int hitPoints;
-    private Image img;
+    private ImageView imageView;
 
-
-
-    public Character(int posX, int posY, String imgURL, int hitPoints) {
+    public Character(double posX, double posY, ImageView imageView) {
         super(posX, posY);
-        this.hitPoints = hitPoints;
-        this.imgURL = imgURL;
-        this.img = new Image(this.getImgURL());
+        this.hitPoints = 3; // default life. can be defined individually using the setter
+        this.imageView = imageView;
+        setHeight(this.imageView.getFitHeight());
+        setWidth(this.imageView.getFitWidth());
     }
 
     public int getHitPoints() { return hitPoints; }
 
     public void setHitPoints(int hitPoints) { this.hitPoints = hitPoints; }
 
-    public String getImgURL() {
-        return imgURL;
+    public ImageView getImageView() {
+        return imageView;
     }
 
-    public void setImgURL(String imgURL) {
-        this.imgURL = imgURL;
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
     }
 
-    public Image getFullImage(){
-        return img;
+    public void updatePosition(double x, double y){ // updates the graphics of the class
+        this.getImageView().setTranslateX(x);
+        this.getImageView().setTranslateY(y);
+        upadteXY(); // call to update class coordinates
+    }
+
+    private void upadteXY(){ // updates the class coordinates
+        this.setPosX(this.getImageView().getTranslateX());
+        this.setPosY(this.getImageView().getTranslateY());
     }
 }

@@ -1,8 +1,17 @@
 package sample;
 
+import javafx.scene.image.ImageView;
+
 public class Hero extends Character {
 
-    public Hero(int posX, int posY, String imgURL, int hitPoints) {
-        super(posX, posY, imgURL, hitPoints);
+    private Hero(double posX, double posY, ImageView imageView) {
+        super(posX, posY, imageView);
     }
+
+    public static Hero makeHero(double posX, double posY, ImageView imageView){
+        return new Hero(posX, posY, imageView);
+    }
+
+
+
 }

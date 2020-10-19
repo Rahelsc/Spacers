@@ -1,14 +1,16 @@
 package sample;
 
-import javafx.scene.Node;
-import javafx.scene.canvas.Canvas;
+import javafx.geometry.Rectangle2D;
 
 public abstract class Interactive {
-    private int posX;
-    private int posY;
+    private double posX;
+    private double posY;
+    private double height;
+    private double width;
+    private int speed;
 
 
-    public Interactive(int posX, int posY) {
+    public Interactive(double posX, double posY) {
         this.posX = posX;
         this.posY = posY;
     }
@@ -17,19 +19,53 @@ public abstract class Interactive {
 
     }
 
-    public int getPosX() {
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public double getPosX() {
         return posX;
     }
 
-    public void setPosX(int posX) {
+    public void setPosX(double posX) {
         this.posX = posX;
     }
 
-    public int getPosY() {
+    public double getPosY() {
         return posY;
     }
 
-    public void setPosY(int posY) {
+    public void setPosY(double posY) {
         this.posY = posY;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public Rectangle2D getBoundary()
+    {
+        return new Rectangle2D(getPosX(),getPosY(),getWidth(),getHeight());
+    }
+
+    public boolean intersects(Interactive s)
+    {
+        return s.getBoundary().intersects(this.getBoundary());
     }
 }
