@@ -7,6 +7,7 @@ public abstract class Interactive {
     private int posX;
     private int posY;
 
+
     public Interactive(int posX, int posY) {
         this.posX = posX;
         this.posY = posY;

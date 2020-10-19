@@ -64,13 +64,13 @@ public class Controller {
     public void turnOn(KeyCode action){
         switch (action){
             case LEFT:LEFT=true;
-            break;
+                break;
             case RIGHT:RIGHT=true;
-            break;
+                break;
             case UP: UP = true;
-            break;
+                break;
             case DOWN: DOWN = true;
-            break;
+                break;
             case SPACE:SPACE = true;
         }
     }
