@@ -197,21 +197,25 @@ public class Controller {
 
                 }
                 //if hero got hurt from shot
-                if(shootings.get(j).intersects(hero)&&
-                        shootings.get(j).getC().getFill().equals(Color.BLACK)){
-                    if(Hearts.getChildren().size()>0)
-                        Hearts.getChildren().remove(Hearts.getChildren().size()-1);
-                    hero.setHitPoints(hero.getHitPoints()-1);
-                    if(hero.getHitPoints()<=0){
-                        hero.setImage(new Image(getClass().getResourceAsStream("Images/Explosion.gif")));
-                        Border.setOnKeyPressed(e->{
-                            System.out.println("game over");
-                        });
-                        if (!Border.getChildren().contains(GameOver))
-                            Border.getChildren().add(GameOver);
-                    }
+                try {
+                    if (shootings.get(j).intersects(hero) &&
+                            shootings.get(j).getC().getFill().equals(Color.BLACK)) {
+                        if (Hearts.getChildren().size() > 0)
+                            Hearts.getChildren().remove(Hearts.getChildren().size() - 1);
+                        hero.setHitPoints(hero.getHitPoints() - 1);
+                        if (hero.getHitPoints() <= 0) {
+                            hero.setImage(new Image(getClass().getResourceAsStream("Images/Explosion.gif")));
+                            Border.setOnKeyPressed(e -> {
+                                System.out.println("game over");
+                            });
+                            if (!Border.getChildren().contains(GameOver))
+                                Border.getChildren().add(GameOver);
+                        }
                         Border.getChildren().remove(shootings.get(j).getC());
                         shootings.remove(shootings.get(j));
+                    }
+                }catch(IndexOutOfBoundsException ex){
+                    System.out.println("out of shots");
                 }
             }
         }
