@@ -23,14 +23,16 @@ public abstract class Character extends Interactive{
         return imageView;
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
+    public void setImage(Image img) {
+        this.imageView.setImage(img);
     }
 
     public void updatePosition(double x, double y){ // updates the graphics of the class
-        this.getImageView().setTranslateX(x);
-        this.getImageView().setTranslateY(y);
-        upadteXY(); // call to update class coordinates
+        if(x>-500&&x<500&&y>-300&&y<300){
+            this.getImageView().setTranslateX(x);
+            this.getImageView().setTranslateY(y);
+            upadteXY(); // call to update class coordinates
+        }
     }
 
     private void upadteXY(){ // updates the class coordinates

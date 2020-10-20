@@ -19,8 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    private Circle circle = new Circle(50.0f, Color.RED);
-    private double newY, newX = 0;
+
 
     @Override
     public void start(Stage primaryStage) throws IOException {

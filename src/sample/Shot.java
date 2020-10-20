@@ -21,6 +21,7 @@ public class Shot extends Interactive { // @Yoad: speed defined in interactive c
         this.setPosY(y);
     }
 
+
     public Circle getC() {
         return c;
     }

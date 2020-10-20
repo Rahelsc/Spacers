@@ -27,11 +27,11 @@ public class Invader extends Character {
     public void movement(){
         int random = (int)Math.round(Math.random() + 1); // randomizes movement of enemies on the x axis
         if (random == 1)
-            this.updatePosition(this.getPosX() - Math.random()*10, this.getPosY()+1);
+            this.updatePosition(this.getPosX() - Math.random()*10, this.getPosY()+0.3);
         else if (random == 2)
-            this.updatePosition(this.getPosX() + Math.random()*10, this.getPosY()+1);
+            this.updatePosition(this.getPosX() + Math.random()*10, this.getPosY()+0.3);
         else
-            this.updatePosition(this.getPosX(), this.getPosY()+1);
+            this.updatePosition(this.getPosX(), this.getPosY()+0.3);
     }
 
 }
